@@ -5,13 +5,13 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>Towards Continual Learning at Scale - Jekyll Advance</title>
+    <title>Enhancing Interoperability in Task-based Programming Models through Common Low-Level Interfaces - Jekyll Advance</title>
 
 
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="/projects/continual_learning_project/"/>
+<meta property="og:url" content="/projects/runtime_interop/"/>
 
-  <meta property="og:title" content="Towards Continual Learning at Scale"/>
+  <meta property="og:title" content="Enhancing Interoperability in Task-based Programming Models through Common Low-Level Interfaces"/>
 
 
 
@@ -276,7 +276,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
           
-            <div class="post-date">07 May 2022</div>
+            <div class="post-date">11 September 2024</div>
           
           
           <div class="post-categories">
@@ -288,7 +288,7 @@
           
           </div>
           <div class="post-title">
-            <h1>Towards Continual Learning at Scale</h1>
+            <h1>Enhancing Interoperability in Task-based Programming Models through Common Low-Level Interfaces</h1>
           </div>
           
 
@@ -311,85 +311,90 @@
     <div class="row justify-content-center">
 
       <div class="col-12 col-lg-8">
-        <div class="content">
-<h2 id="research-topic-and-goals">Research topic and goals</h2>
+        <div class="content"><h2 id="research-topic-and-goals">Research topic and goals</h2>
 
-<p>During the past decade, Deep learning (DL) supported the shift from rule-based systems towards statistical models. Deep Neural Networks (DNNs) revolutionized how we address problems in a wide range of applications by extracting patterns from complex yet labelled datasets. In the same way that more-powerful computers made it possible to design networks with vastly more neurons, ever-growing volumes of data act as a driving force for advancements in this field. Bigger models and larger centralized datasets demand for distributed strategies to leverage multiple compute nodes.</p>
+<p>Task-based programming models are a promising approach to exploiting complex
+distributed and heterogeneous systems. Recently, these models have emerged as a
+viable alternative to traditional message-passing and fork-join approaches,
+reflecting the research community’s growing interest in their numerous
+benefits. Despite these advantages, the broader adoption within the scientific
+and industrial sectors remains limited. A major barrier is the poor
+interoperability among existing runtime systems, which prevents the development
+of complex applications through the integration of multiple components or
+libraries written in different task-based programming models. Such
+interoperability issues often lead to oversubscription, significantly impairing
+applications’ performance. Maintainability presents another significant challenge within task-based programming models, encountered by projects at varying stages. The relatively modest level of effort anticipated in a future steady-state raises critical questions about the sustainability of support for these models. Can the organization of software, potentially through the utilization of shared code bases for sub-components, facilitate easier maintenance? Such an approach could potentially streamline the support process, thereby enhancing the long-term viability and operational efficiency of task-based systems.</p>
 
-<p>Most existing supervised learning algorithms operate under the assumptions that the data is (1) independent and identically distributed (i.i.d.); and (2) available before the training process. However, these constraints stand in the way of many real-life scenarios where the aforementioned datasets are replaced by high volume, high velocity data streams generated over time by distributed (sometimes geographically) devices. It is unfeasible to keep training the models in an offline fashion from scratch every time new data arrives, as this would lead to prohibitive time and/or resource constraints. Also, typical DNNs suffer from catastrophic forgetting in this context, a phenomenon causing them to reinforce new patterns at the expense of previously acquired knowledge (i.e., a bias towards new samples). Some authors have shown that memory replay methods are effective in mitigating accuracy degradation in such settings. However, their performance is still far from that of oracles with full access to the static dataset. The problem of Continual Learning (CL) remains an open research question.</p>
-
-<p>Existing research typically addresses distributed DL and CL separately. At INRIA, we are interested in how CL methods can take advantage of data parallelization across nodes, which is one of the main techniques to achieve training scalability on HPC systems. The aggregated memory could benefit the accuracy achieved by such algorithms by instantiating distributed replay buffers. The main research goals of this project are the (1) design and implementation of a distributed replay buffer leveraging distributed systems effectively and the (2) study of trade-offs introduced by large-scale CL in terms of training time, accuracy and memory usage.</p>
-
-<h2 id="results-for-20212022">Results for 2021/2022</h2>
-
-<p>We kicked off this project in December 2021. We are studying techniques based on rehearsal (augment mini-batches with representative samples previously encountered during training) to address the aforementioned challenges. The key novelty is how to adopt rehearsal in the context of data-parallel training, which is one of the main techniques to achieve training scalability on HPC systems. In this sense, the goal is to design and implement a distributed rehearsal buffer that handles the selection of representative samples and the augmentation of mini-batches asynchronously in the background.</p>
-
-<p>Our first series of experiments focuses on evaluating the performance and scalability of our proposal for classification problems. We run extensive experiments on up to 128 GPUs of ANL’s ThetaGPU supercomputer to compare our approach with baselines representative of training-from-scratch (the upper bound in terms of accuracy) and incremental training (the lower bound) <a class="citation" href="#bouvierEtAl2024">(Bouvier et al. 2024)</a>.</p>
-
-<h2 id="results-for-20232024">Results for 2023/2024</h2>
-
-<p>With a growing diversity of rehearsal techniques, it becomes important to decouple the rehearsal buffer from the learning task, such that it becomes a generic, reusable abstraction that can store additional state information as needed by more advanced rehearsal-based CL algorithms. To this end, we propose a generalization of rehearsal buffers to support both classification and generative learning tasks, as well as more advanced rehearsal strategies (notably Dark Experience Replay, leveraging knowledge distillation). We illustrate this approach with a real-life HPC streaming application from the domain of ptychographic image reconstruction, leveraging data acquired at ANL’s Advanced Photon Source (APS) <a class="citation" href="#bouvierEtAl2024b">(Bouvier et al. 2024)</a>.</p>
+<p>Our project aims to address these challenges by identifying the low-level
+primitives necessary for building efficient and scalable task-based runtime
+systems. Based on these findings, we will develop unified low-level tasking
+interfaces to enhance interoperability among different runtime systems,
+optimizing performance and encouraging broader adoption of task-based
+programming models.</p>
 
 <h2 id="visits-and-meetings">Visits and meetings</h2>
 
-<p>We schedule regular video meetings between the different members of the project.</p>
-
-<p><span class="person given-name">Thomas</span> <span class="person sur-name">Bouvier</span> (<abbr title="Institut national de recherche en informatique et en automatique" class="initialism" data-toggle="tooltip">INRIA</abbr>) visited ANL in the context of a 3-month appointment during summer 2022.</p>
+<p>We had a BoF session in the Kobe workshop, where we decided to start this project.
+There are no planned visits yet.</p>
 
 <h2 id="impact-and-publications">Impact and publications</h2>
 
-<!--
+<ul>
+  <li>Solve interoperability problems between task-based programming models</li>
+  <li>Increase software development productivity and reach of task-based
+programming models</li>
+  <li>Research and document needs from higher-level programming systems (Charm++,
+HPX, Legion, OpenMP, OmpSs, ..) for the task-based execution systems</li>
+  <li>Explore possibility of creating a standard that allows for different use
+cases currently served,  either via a flexible design or allowing for
+extensions</li>
+</ul>
 
+<h2 id="future-plans">Future plans</h2>
 
+<p>not defined yet.</p>
 
-
-
--->
+<h2 id="references">References</h2>
 
 <ol class="bibliography"><li><div class="bibtex-entry-container">
   <div class="d-flex flex-row flex-wrap">
     <div class="col-md-3 col-sm-12 bibtex-ref-meta hidden">
       <div class="row">
         <div class="col-md-12 ref-label tag tag-default">
-          bouvierEtAl2024
+          DBLP:conf/ipps/0006S024
         </div>
       </div>
       <div class="row">
-        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapsebouvierEtAl2024Bibtex" aria-expanded="false" aria-controls="collapsebouvierEtAl2024Bibtex">
+        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapseDBLP:conf/ipps/0006S024Bibtex" aria-expanded="false" aria-controls="collapseDBLP:conf/ipps/0006S024Bibtex">
           BibTeX
         </button>
-        <button class="btn btn-sm btn-secondary-outline col-xs-6" disabled="disabled" data-toggle="collapse" data-target="#collapsebouvierEtAl2024Abstract" aria-expanded="false" aria-controls="collapsebouvierEtAl2024Abstract">
+        <button class="btn btn-sm btn-secondary-outline col-xs-6" disabled="disabled" data-toggle="collapse" data-target="#collapseDBLP:conf/ipps/0006S024Abstract" aria-expanded="false" aria-controls="collapseDBLP:conf/ipps/0006S024Abstract">
           Abstract
         </button>
       </div>
     </div>
 
     <div class="bibtex-ref-entry col-md-9 col-sm-12">
-      <span id="bouvierEtAl2024">Bouvier, Thomas, Bogdan Nicolae, Hugo Chaugier, Alexandru Costan, Ian Foster, and Gabriel Antoniu. 2024. “Efficient Data-Parallel Continual Learning with Asynchronous Distributed Rehearsal
-    Buffers.” In <i>CCGrid 2024 - IEEE 24th International Symposium on Cluster, Cloud and Internet
-    Computing</i>, 1–10. Philadelphia (PA), United States. https://doi.org/10.1109/CCGrid59990.2024.00036.</span>
+      <span id="DBLP:conf/ipps/0006S024">Álvarez, David, Kevin Sala, and Vicenç Beltran. 2024. “NOS-V: Co-Executing HPC Applications Using System-Wide Task Scheduling.” In <i>IEEE International Parallel and Distributed Processing Symposium,
+                  IPDPS 2024, San Francisco, CA, USA, May 27-31, 2024</i>, 312–24. IEEE. https://doi.org/10.1109/IPDPS57955.2024.00035.</span>
     </div>
   </div>
-  <div class="collapse" id="collapsebouvierEtAl2024Bibtex">
+  <div class="collapse" id="collapseDBLP:conf/ipps/0006S024Bibtex">
     <div class="row bibtex-ref-raw">
       <div class="col-sm-10 offset-sm-1">
-        <pre><code>@inproceedings{bouvierEtAl2024,
-  address = {Philadelphia (PA), United States},
-  author = {Bouvier, Thomas and Nicolae, Bogdan and Chaugier, Hugo and Costan, Alexandru and Foster, Ian and Antoniu, Gabriel},
-  booktitle = {{CCGrid 2024 - IEEE 24th International Symposium on Cluster, Cloud and Internet
-      Computing}},
-  doi = {10.1109/CCGrid59990.2024.00036},
-  hal_id = {hal-04600107},
-  hal_version = {v1},
-  keywords = {continual learning ; data-parallel training ; experience replay ; distributed
-      rehearsal buffers ; asynchronous data management ; scalability},
-  month = may,
-  pages = {1-10},
-  pdf = {https://inria.hal.science/hal-04600107/file/paper.pdf},
-  title = {{Efficient Data-Parallel Continual Learning with Asynchronous Distributed Rehearsal
-      Buffers}},
-  url = {https://inria.hal.science/hal-04600107},
-  year = {2024}
+        <pre><code>@inproceedings{DBLP:conf/ipps/0006S024,
+  author = {{\'{A}}lvarez, David and Sala, Kevin and Beltran, Vicen{\c{c}}},
+  title = {nOS-V: Co-Executing {HPC} Applications Using System-Wide Task Scheduling},
+  booktitle = {{IEEE} International Parallel and Distributed Processing Symposium,
+                    {IPDPS} 2024, San Francisco, CA, USA, May 27-31, 2024},
+  pages = {312--324},
+  publisher = {{IEEE}},
+  year = {2024},
+  url = {https://doi.org/10.1109/IPDPS57955.2024.00035},
+  doi = {10.1109/IPDPS57955.2024.00035},
+  timestamp = {Wed, 17 Jul 2024 15:59:37 +0200},
+  biburl = {https://dblp.org/rec/conf/ipps/0006S024.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 </code></pre>
       </div>
@@ -403,40 +408,87 @@
     <div class="col-md-3 col-sm-12 bibtex-ref-meta hidden">
       <div class="row">
         <div class="col-md-12 ref-label tag tag-default">
-          bouvierEtAl2024b
+          10.1007/978-3-642-03869-3_80
         </div>
       </div>
       <div class="row">
-        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapsebouvierEtAl2024bBibtex" aria-expanded="false" aria-controls="collapsebouvierEtAl2024bBibtex">
+        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapse10.1007/978-3-642-03869-3_80Bibtex" aria-expanded="false" aria-controls="collapse10.1007/978-3-642-03869-3_80Bibtex">
           BibTeX
         </button>
-        <button class="btn btn-sm btn-secondary-outline col-xs-6" disabled="disabled" data-toggle="collapse" data-target="#collapsebouvierEtAl2024bAbstract" aria-expanded="false" aria-controls="collapsebouvierEtAl2024bAbstract">
+        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapse10.1007/978-3-642-03869-3_80Abstract" aria-expanded="false" aria-controls="collapse10.1007/978-3-642-03869-3_80Abstract">
           Abstract
         </button>
       </div>
     </div>
 
     <div class="bibtex-ref-entry col-md-9 col-sm-12">
-      <span id="bouvierEtAl2024b">Bouvier, Thomas, Bogdan Nicolae, Alexandru Costan, Tekin Bicer, Ian Foster, and Gabriel Antoniu. 2024. “Efficient Distributed Continual Learning for Steering Experiments in Real-Time.” <i>Future Generation Computer Systems</i>, July. https://doi.org/10.1016/j.future.2024.07.016.</span>
+      <span id="10.1007/978-3-642-03869-3_80">Augonnet, Cédric, Samuel Thibault, Raymond Namyst, and Pierre-André Wacrenier. 2009. “StarPU: A Unified Platform for Task Scheduling on Heterogeneous Multicore Architectures.” In <i>Euro-Par 2009 Parallel Processing</i>, edited by Henk Sips, Dick Epema, and Hai-Xiang Lin, 863–74. Berlin, Heidelberg: Springer Berlin Heidelberg.</span>
     </div>
   </div>
-  <div class="collapse" id="collapsebouvierEtAl2024bBibtex">
+  <div class="collapse" id="collapse10.1007/978-3-642-03869-3_80Bibtex">
     <div class="row bibtex-ref-raw">
       <div class="col-sm-10 offset-sm-1">
-        <pre><code>@article{bouvierEtAl2024b,
-  author = {Bouvier, Thomas and Nicolae, Bogdan and Costan, Alexandru and Bicer, Tekin and Foster, Ian and Antoniu, Gabriel},
-  doi = {10.1016/j.future.2024.07.016},
-  hal_id = {hal-04664176},
-  hal_version = {v2},
-  journal = {{Future Generation Computer Systems}},
-  keywords = {continual learning ; data-parallel training ; experience replay ; distributed
-      rehearsal buffers ; asynchronous data management ; scalability ; streaming ; generative AI},
-  month = jul,
-  pdf = {https://inria.hal.science/hal-04664176v2/file/paper.pdf},
-  publisher = {{Elsevier}},
-  title = {{Efficient Distributed Continual Learning for Steering Experiments in Real-Time}},
-  url = {https://inria.hal.science/hal-04664176},
-  year = {2024}
+        <pre><code>@inproceedings{10.1007/978-3-642-03869-3_80,
+  author = {Augonnet, C{\'e}dric and Thibault, Samuel and Namyst, Raymond and Wacrenier, Pierre-Andr{\'e}},
+  editor = {Sips, Henk and Epema, Dick and Lin, Hai-Xiang},
+  title = {StarPU: A Unified Platform for Task Scheduling on Heterogeneous Multicore Architectures},
+  booktitle = {Euro-Par 2009 Parallel Processing},
+  year = {2009},
+  publisher = {Springer Berlin Heidelberg},
+  address = {Berlin, Heidelberg},
+  pages = {863--874},
+  isbn = {978-3-642-03869-3}
+}
+</code></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="collapse" id="collapse10.1007/978-3-642-03869-3_80Abstract">
+    <div class="row bibtex-ref-abstract">
+      <div class="col-sm-10 offset-sm-1">
+        In the field of HPC, the current hardware trend is to design multiprocessor architectures that feature heterogeneous technologies such as specialized coprocessors (e.g. Cell/BE SPUs) or data-parallel accelerators (e.g. GPGPUs).
+      </div>
+    </div>
+  </div>
+  
+</div>
+</li>
+<li><div class="bibtex-entry-container">
+  <div class="d-flex flex-row flex-wrap">
+    <div class="col-md-3 col-sm-12 bibtex-ref-meta hidden">
+      <div class="row">
+        <div class="col-md-12 ref-label tag tag-default">
+          508060
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn btn-sm btn-secondary col-xs-6" data-toggle="collapse" data-target="#collapse508060Bibtex" aria-expanded="false" aria-controls="collapse508060Bibtex">
+          BibTeX
+        </button>
+        <button class="btn btn-sm btn-secondary-outline col-xs-6" disabled="disabled" data-toggle="collapse" data-target="#collapse508060Abstract" aria-expanded="false" aria-controls="collapse508060Abstract">
+          Abstract
+        </button>
+      </div>
+    </div>
+
+    <div class="bibtex-ref-entry col-md-9 col-sm-12">
+      <span id="508060">Kale, L.V., M. Bhandarkar, N. Jagathesan, S. Krishnan, and J. Yelon. 1996. “Converse: an Interoperable Framework for Parallel Programming.” In <i>Proceedings of International Conference on Parallel Processing</i>, 212–17. https://doi.org/10.1109/IPPS.1996.508060.</span>
+    </div>
+  </div>
+  <div class="collapse" id="collapse508060Bibtex">
+    <div class="row bibtex-ref-raw">
+      <div class="col-sm-10 offset-sm-1">
+        <pre><code>@inproceedings{508060,
+  author = {Kale, L.V. and Bhandarkar, M. and Jagathesan, N. and Krishnan, S. and Yelon, J.},
+  booktitle = {Proceedings of International Conference on Parallel Processing},
+  title = {Converse: an interoperable framework for parallel programming},
+  year = {1996},
+  volume = {},
+  number = {},
+  pages = {212-217},
+  keywords = {Parallel programming;Object oriented programming;Parallel languages;Runtime},
+  doi = {10.1109/IPPS.1996.508060}
 }
 </code></pre>
       </div>
@@ -445,17 +497,6 @@
   
 </div>
 </li></ol>
-
-<h2 id="future-plans">Future plans</h2>
-
-<ul>
-  <li>Apply rehearsal-based CL to LLM training, by integrating the distributed rehearsal buffer into training runtimes like DeepSpeed.</li>
-  <li>Use the distributed rehearsal buffer as a retriever for Retrieval Augmented Generation (RAG).</li>
-</ul>
-
-<h2 id="references">References</h2>
-
-<ol class="bibliography"></ol>
 </div>
         
         
@@ -467,8 +508,8 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-      this.page.url = '/projects/continual_learning_project/';
-      this.page.identifier = '/projects/continual_learning_project/';
+      this.page.url = '/projects/runtime_interop/';
+      this.page.identifier = '/projects/runtime_interop/';
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE
